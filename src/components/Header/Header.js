@@ -15,13 +15,26 @@ const StyledImage = styled.img`
   height: 70vh;
   object-fit: cover;
   position: relative;
+
+  ::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    top: -5px;
+    right: -5px;
+  }
 `;
 
 const StyledHeading = styled.h1`
   position: absolute;
   top: 20%;
   z-index: 4;
-  letter-spacing: 10px;
+  letter-spacing: 20px;
+  color: ${({ theme }) => theme.color.background};
+  text-shadow: 3px 3px 8px #bbb;
+  text-align: center;
 `;
 
 const StyledParagraph = styled.p`

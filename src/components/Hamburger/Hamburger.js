@@ -7,7 +7,7 @@ const StyledHamburger = styled.button`
   height: 36px;
   background: transparent;
   border: none;
-  z-index: 100;
+  z-index: 901;
   margin: 0.8rem 1rem;
   position: fixed;
   top: 0;
@@ -30,7 +30,7 @@ const InnerHamburger = styled.div`
     position: absolute;
     width: 30px;
     height: 2px;
-    background: #000;
+    background: ${({ isOpen }) => (isOpen ? '#aaa' : '#000')};
     left: 0;
     transition: all 0.3s ease;
   }
@@ -46,10 +46,10 @@ const InnerHamburger = styled.div`
   }
 `;
 
-const Hamburger = () => {
+const Hamburger = ({ isOpen, toggleMenu }) => {
   return (
-    <StyledHamburger>
-      <InnerHamburger></InnerHamburger>
+    <StyledHamburger onClick={toggleMenu}>
+      <InnerHamburger isOpen={isOpen}></InnerHamburger>
     </StyledHamburger>
   );
 };

@@ -3,15 +3,17 @@ import styled from 'styled-components';
 
 const StyledHamburger = styled.button`
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   background: transparent;
   border: none;
   z-index: 901;
-  margin: 0.8rem 1rem;
+  margin: 1rem 1.5rem;
   position: fixed;
   top: 0;
   right: 0;
+  border-left: 1px solid #000;
+  transition: all 1s ease;
 
   :focus {
     outline: none;
@@ -19,7 +21,7 @@ const StyledHamburger = styled.button`
 `;
 
 const InnerHamburger = styled.div`
-  width: 30px;
+  width: 26px;
   height: 2px;
   position: relative;
   background: transparent;
@@ -28,7 +30,7 @@ const InnerHamburger = styled.div`
   ::after {
     content: '';
     position: absolute;
-    width: 30px;
+    width: 26px;
     height: 2px;
     background: ${({ isOpen }) => (isOpen ? '#aaa' : '#000')};
     left: 0;
@@ -48,7 +50,7 @@ const InnerHamburger = styled.div`
 
 const Hamburger = ({ isOpen, toggleMenu }) => {
   return (
-    <StyledHamburger onClick={toggleMenu}>
+    <StyledHamburger onClick={toggleMenu} isOpen={isOpen}>
       <InnerHamburger isOpen={isOpen}></InnerHamburger>
     </StyledHamburger>
   );

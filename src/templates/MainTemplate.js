@@ -10,7 +10,7 @@ import Hamburger from '../components/Hamburger/Hamburger';
 import Footer from '../components/Footer/Footer';
 
 import { reducer } from '../reducer/reducer';
-import PageContext from '../context/context';
+import PageContext from '../context/menuContext';
 
 const MainTemplate = ({ children }) => {
   const context = useContext(PageContext);

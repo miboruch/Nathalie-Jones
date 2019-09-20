@@ -1,12 +1,14 @@
 import React from 'react';
 
 import MainTemplate from './templates/MainTemplate';
-import Header from './components/Header/Header';
+import LandingPage from './pages/LandingPage/LandingPage';
+
+// ! CREATE ROUTER FOR PAGES (FROM LANDINGPAGE.js)
 
 function App() {
   return (
     <MainTemplate>
-      <Header></Header>
+      <LandingPage></LandingPage>
     </MainTemplate>
   );
 }

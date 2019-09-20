@@ -10,6 +10,14 @@ const StyledHeader = styled.header`
   flex-direction: column;
 `;
 
+const StyledLine = styled.div`
+  width: 90%;
+  height: 2px;
+  background: #000;
+  ${'' /* transform: rotate(90deg); */}
+  margin-top: 4em;
+`;
+
 const StyledImage = styled.img`
   width: 90%;
   height: 70vh;
@@ -46,6 +54,7 @@ const Header = () => (
   <StyledHeader>
     <StyledHeading>NATHALIE</StyledHeading>
     <StyledImage src={'./images/header.jpg'} alt='logo'></StyledImage>
+    <StyledLine />
   </StyledHeader>
 );
 

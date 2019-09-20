@@ -19,7 +19,7 @@ const StyledList = styled.ul`
   top: 20%;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  transition: all 1s 1s ease;
+  transition: all 1s 0.5s ease;
 `;
 
 const StyledListItem = styled.li`

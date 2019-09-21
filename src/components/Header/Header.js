@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+
+import { TimelineLite } from 'gsap';
 
 const StyledHeader = styled.header`
   width: 100vw;
@@ -13,8 +15,7 @@ const StyledHeader = styled.header`
 const StyledLine = styled.div`
   width: 90%;
   height: 2px;
-  background: #000;
-  ${'' /* transform: rotate(90deg); */}
+  background: #aaa;
   margin-top: 4em;
 `;
 
@@ -45,17 +46,33 @@ const StyledHeading = styled.h1`
   text-align: center;
 `;
 
-const StyledParagraph = styled.p`
-  width: 80%;
-  letter-spacing: 2px;
-`;
+const Header = () => {
+  let line = useRef(null);
+  let heading = useRef(null);
+  const tween = new TimelineLite({ paused: true });
 
-const Header = () => (
-  <StyledHeader>
-    <StyledHeading>NATHALIE</StyledHeading>
-    <StyledImage src={'./images/header.jpg'} alt='logo'></StyledImage>
-    <StyledLine />
-  </StyledHeader>
-);
+  useEffect(() => {
+    tween
+      .fromTo(line, 1, { width: 0 }, { width: '90%' })
+      .fromTo(
+        heading,
+        1,
+        { opacity: 0, top: '15%' },
+        { opacity: 1, top: '20%' }
+      );
+
+    tween.play();
+  }, []);
+
+  return (
+    <StyledHeader>
+      <StyledHeading ref={element => (heading = element)}>
+        NATHALIE
+      </StyledHeading>
+      <StyledImage src={'./images/header.jpg'} alt='logo'></StyledImage>
+      <StyledLine ref={element => (line = element)} />
+    </StyledHeader>
+  );
+};
 
 export default Header;

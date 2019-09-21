@@ -78,7 +78,7 @@ const StyledStripe = styled.span`
   width: 1px;
   height: 100vh;
   background: ${({ isOpen }) =>
-    isOpen ? 'rgba(255, 255, 255, 0.9)' : 'rgba(255, 255, 255, 0.2)'};
+    isOpen ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
   position: absolute;
   transition: all 2s ease;
   left: 33.33%;

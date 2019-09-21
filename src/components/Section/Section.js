@@ -41,19 +41,27 @@ const StyledDetails = styled.div`
 `;
 
 const StyledHeader = styled.h1`
+  font-size: 50px;
   letter-spacing: 10px;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 30px;
   margin: 0;
-  color: ${({ theme }) => theme.color.background};
+  color: #fff;
+  -webkit-text-stroke: 1px #ddd;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 1000;
 `;
 
-const Section = ({ src, title, description, id }) => {
+const StyledParagraph = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+`;
+
+const Section = ({ src, title, id }) => {
   return (
     <StyledWrapper>
-      0/1/1/2
+      <StyledParagraph>0/1/{id}</StyledParagraph>
       <StyledBackground src={src} id={id}></StyledBackground>
       <StyledHeader>{title}</StyledHeader>
       <StyledDetails>More</StyledDetails>

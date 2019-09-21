@@ -12,7 +12,7 @@ const StyledHamburger = styled.button`
   position: fixed;
   top: 0;
   right: 0;
-  border-left: 1px solid #000;
+  border-left: 1px solid #aaa;
   transition: all 1s ease;
 
   :focus {

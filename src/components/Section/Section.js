@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
-const StyledWrapper = styled.section`
+const StyledWrapper = styled(animated.section)`
   width: 100%;
   height: 40vh;
   position: relative;
@@ -58,13 +60,26 @@ const StyledParagraph = styled.p`
   font-size: 0.8rem;
 `;
 
+const StyledLink = styled(Link)`
+  display: inline-block;
+  margin: 1em 1em;
+`;
+
 const Section = ({ src, title, id }) => {
+  const animationProps = useSpring({
+    config: { duration: 1000 },
+    opacity: 1,
+    from: { opacity: 0 }
+  });
+
   return (
-    <StyledWrapper>
+    <StyledWrapper style={animationProps}>
       <StyledParagraph>0/1/{id}</StyledParagraph>
       <StyledBackground src={src} id={id}></StyledBackground>
       <StyledHeader>{title}</StyledHeader>
-      <StyledDetails>More</StyledDetails>
+      <StyledLink to={'/modeling'}>
+        <StyledDetails>More</StyledDetails>
+      </StyledLink>
     </StyledWrapper>
   );
 };

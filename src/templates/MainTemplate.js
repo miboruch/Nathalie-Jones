@@ -8,6 +8,7 @@ import Logo from '../components/Logo/Logo';
 import Menu from '../components/Menu/Menu';
 import Hamburger from '../components/Hamburger/Hamburger';
 import Footer from '../components/Footer/Footer';
+import Loader from '../components/Loader/Loader';
 
 import { reducer } from '../reducer/reducer';
 import PageContext from '../context/menuContext';
@@ -21,6 +22,7 @@ const MainTemplate = ({ children }) => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <>
+          <Loader />
           <Logo />
           <Hamburger
             toggleMenu={() => dispatch({ type: 'TOGGLE_MENU' })}

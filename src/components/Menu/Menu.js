@@ -3,15 +3,6 @@ import styled from 'styled-components';
 
 import { menuItems } from './menuItems';
 
-const StyledWrapper = styled.header`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 900;
-`;
-
 const StyledList = styled.ul`
   width: 100%;
   list-style-type: none;
@@ -50,9 +41,14 @@ const StyledSpan = styled.span`
 `;
 
 const StyledMenuOverlay = styled.section`
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
+  z-index: 100;
+  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+  transition: visibility 1s ease;
 `;
 
 const StyledBlock = styled.div`
@@ -66,7 +62,7 @@ const StyledBlock = styled.div`
 
 const StyledSecondBlock = styled(StyledBlock)`
   left: 33.33%;
-  ${'' /* transition: width 1s 1.3s ease; */} /* ON DESKTOP */
+  ${'' /* transition: width 1s 1.3s ease;  */} /* ON DESKTOP */
 `;
 
 const StyledThirdBlock = styled(StyledBlock)`
@@ -90,25 +86,23 @@ const StyledSecondStrip = styled(StyledStripe)`
 
 const Menu = ({ isOpen }) => {
   return (
-    <StyledWrapper isOpen={isOpen}>
-      <StyledMenuOverlay>
-        <StyledBlock isOpen={isOpen} />
-        <StyledSecondBlock isOpen={isOpen} />
-        <StyledThirdBlock isOpen={isOpen} />
+    <StyledMenuOverlay isOpen={isOpen}>
+      <StyledBlock isOpen={isOpen} />
+      <StyledSecondBlock isOpen={isOpen} />
+      <StyledThirdBlock isOpen={isOpen} />
 
-        <StyledStripe isOpen={isOpen} />
-        <StyledSecondStrip isOpen={isOpen} />
+      <StyledStripe isOpen={isOpen} />
+      <StyledSecondStrip isOpen={isOpen} />
 
-        <StyledList isOpen={isOpen}>
-          {menuItems.map(({ id, name }) => (
-            <StyledListItem key={id}>
-              <StyledSpan>{id}</StyledSpan>
-              {name}
-            </StyledListItem>
-          ))}
-        </StyledList>
-      </StyledMenuOverlay>
-    </StyledWrapper>
+      <StyledList isOpen={isOpen}>
+        {menuItems.map(({ id, name }) => (
+          <StyledListItem key={id}>
+            <StyledSpan>{id}</StyledSpan>
+            {name}
+          </StyledListItem>
+        ))}
+      </StyledList>
+    </StyledMenuOverlay>
   );
 };
 

@@ -1,18 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
+import { easeCubicInOut } from 'd3-ease';
 
-import { TimelineLite } from 'gsap';
+import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   width: 100vw;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 `;
 
-const StyledLine = styled.div`
+const StyledLink = styled(Link)`
+  font-weight: bold;
+  z-index: 99;
+`;
+
+const StyledLine = styled(animated.div)`
   width: 90%;
   height: 2px;
   background: #aaa;
@@ -36,7 +43,7 @@ const StyledImage = styled.img`
   }
 `;
 
-const StyledHeading = styled.h1`
+const StyledHeading = styled(animated.h1)`
   position: absolute;
   top: 20%;
   z-index: 4;
@@ -47,30 +54,26 @@ const StyledHeading = styled.h1`
 `;
 
 const Header = () => {
-  let line = useRef(null);
-  let heading = useRef(null);
-  const tween = new TimelineLite({ paused: true });
+  const lineAnimationProps = useSpring({
+    config: { duration: 2000, easing: easeCubicInOut },
+    delay: 3000,
+    from: { width: 0 },
+    to: { width: 300 }
+  });
 
-  useEffect(() => {
-    tween
-      .fromTo(line, 1, { width: 0 }, { width: '90%' })
-      .fromTo(
-        heading,
-        1,
-        { opacity: 0, top: '15%' },
-        { opacity: 1, top: '20%' }
-      );
-
-    tween.play();
-  }, []);
+  const headingAnimationProps = useSpring({
+    config: { duration: 1500, easing: easeCubicInOut },
+    delay: 3500,
+    from: { opacity: 0, top: '15%' },
+    to: { opacity: 1, top: '20%' }
+  });
 
   return (
     <StyledHeader>
-      <StyledHeading ref={element => (heading = element)}>
-        NATHALIE
-      </StyledHeading>
+      <StyledLink to={'/modeling'}>click</StyledLink>
+      <StyledHeading style={headingAnimationProps}>NATHALIE</StyledHeading>
       <StyledImage src={'./images/header.jpg'} alt='logo'></StyledImage>
-      <StyledLine ref={element => (line = element)} />
+      <StyledLine style={lineAnimationProps} />
     </StyledHeader>
   );
 };

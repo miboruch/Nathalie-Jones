@@ -28,7 +28,10 @@ const MainTemplate = ({ children }) => {
             toggleMenu={() => dispatch({ type: 'TOGGLE_MENU' })}
             isOpen={state.isOpen}
           />
-          <Menu isOpen={state.isOpen} />
+          <Menu
+            isOpen={state.isOpen}
+            toggleMenu={() => dispatch({ type: 'TOGGLE_MENU' })}
+          />
           {children}
           <Footer />
         </>

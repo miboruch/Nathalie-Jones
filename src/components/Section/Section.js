@@ -65,15 +65,14 @@ const StyledLink = styled(Link)`
   margin: 1em 1em;
 `;
 
-const Section = ({ src, title, id }) => {
-  const animationProps = useSpring({
-    config: { duration: 1000 },
-    opacity: 1,
-    from: { opacity: 0 }
-  });
+const getObjectScroll = event => {
+  let y = event.target;
+  console.log(y);
+};
 
+const Section = ({ src, title, id, style }) => {
   return (
-    <StyledWrapper style={animationProps}>
+    <StyledWrapper style={style}>
       <StyledParagraph>0/1/{id}</StyledParagraph>
       <StyledBackground src={src} id={id}></StyledBackground>
       <StyledHeader>{title}</StyledHeader>

@@ -10,7 +10,7 @@ const StyledWrapper = styled(animated.section)`
   top: 0;
   left: 0;
   background: #fcf0ec;
-  z-index: 999;
+  z-index: 997;
   transform: translateX(-100%);
 `;
 
@@ -24,7 +24,7 @@ const Loader = () => {
     leave: { transform: 'translateX(-80%)' },
     config: { duration: 2000, easing: easeCubicOut }
   })[0];
-  console.log(props);
+
   return <StyledWrapper style={props}></StyledWrapper>;
 };
 

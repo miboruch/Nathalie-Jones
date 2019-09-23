@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   width: 100vw;
-  min-height: 95vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ const StyledLine = styled(animated.div)`
   margin-top: 4em;
 `;
 
-const StyledImage = styled.img`
+const StyledImage = styled(animated.img)`
   width: 90%;
   height: 70vh;
   object-fit: cover;
@@ -68,11 +68,22 @@ const Header = () => {
     to: { opacity: 1, top: '20%' }
   });
 
+  const imageAnimationProps = useSpring({
+    config: { duration: 1500, easing: easeCubicInOut },
+    delay: 1000,
+    from: { opacity: 0, height: '4vh' },
+    to: { opacity: 1, height: '70vh' }
+  });
+
   return (
     <StyledHeader>
       <StyledLink to={'/modeling'}>click</StyledLink>
       <StyledHeading style={headingAnimationProps}>NATHALIE</StyledHeading>
-      <StyledImage src={'./images/header.jpg'} alt='logo'></StyledImage>
+      <StyledImage
+        src={'./images/header.jpg'}
+        alt='logo'
+        style={imageAnimationProps}
+      ></StyledImage>
       <StyledLine style={lineAnimationProps} />
     </StyledHeader>
   );

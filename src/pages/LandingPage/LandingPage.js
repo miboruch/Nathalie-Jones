@@ -11,8 +11,6 @@ const LandingPage = () => {
   const AnimatedSection = animated(Section);
   const context = React.useContext(SectionContext);
 
-  console.log(context);
-
   const trail = useTrail(context.length, {
     from: { opacity: 0, transform: 'translateX(-100px)' },
     to: { opacity: 1, transform: 'translateX(0)' },

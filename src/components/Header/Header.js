@@ -77,7 +77,6 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <StyledLink to={'/modeling'}>click</StyledLink>
       <StyledHeading style={headingAnimationProps}>NATHALIE</StyledHeading>
       <StyledImage
         src={'./images/header.jpg'}

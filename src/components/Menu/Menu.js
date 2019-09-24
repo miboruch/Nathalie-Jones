@@ -87,21 +87,26 @@ const StyledLink = animated(Link);
 
 const Menu = ({ isOpen, toggleMenu }) => {
   const trail = useTrail(menuItems.length, {
-    from: {
-      opacity: 0,
-      visibility: 'hidden',
-      transform: 'translateX(-30px)',
-      pointerEvents: 'none'
-    },
-    to: {
-      pointerEvents: isOpen ? 'auto' : 'none',
-      opacity: isOpen ? 1 : 0,
-      visibility: isOpen ? 'visible' : 'hidden',
-      transform: 'translateX(0)'
-    },
-    delay: isOpen ? 3000 : 0,
-    reset: isOpen,
-    reverse: !isOpen
+    // from: {
+    //   opacity: 0,
+    //   visibility: 'hidden',
+    //   transform: 'translateX(-30px)',
+    //   pointerEvents: 'none'
+    // },
+    // to: {
+    //   pointerEvents: isOpen ? 'auto' : 'none',
+    //   opacity: isOpen ? 1 : 0,
+    //   visibility: isOpen ? 'visible' : 'hidden',
+    //   transform: 'translateX(0)'
+    // },
+    // delay: isOpen ? 3000 : 0,
+    // reset: true,
+    // reverse: false
+
+    opacity: isOpen ? 1 : 0,
+    transform: `translateX(${isOpen ? '0' : '-30px'})`,
+    from: { opacity: 0, transform: 'translateX(-30px)' },
+    delay: isOpen ? 3000 : 500
   });
 
   return (

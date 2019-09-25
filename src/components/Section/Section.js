@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
+import Fade from 'react-reveal/Fade';
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 
-const StyledWrapper = styled(animated.section)`
+const StyledWrapper = styled.section`
   width: 100%;
   height: 40vh;
   position: relative;
@@ -65,21 +66,19 @@ const StyledLink = styled(Link)`
   margin: 1em 1em;
 `;
 
-const getObjectScroll = event => {
-  let y = event.target;
-  console.log(y);
-};
-
-const Section = ({ src, title, id, style }) => {
+const Section = ({ src, title, id, style = '', pathName }) => {
   return (
-    <StyledWrapper style={style}>
-      <StyledParagraph>0/1/{id}</StyledParagraph>
-      <StyledBackground src={src} id={id}></StyledBackground>
-      <StyledHeader>{title}</StyledHeader>
-      <StyledLink to={'/modeling'}>
-        <StyledDetails>More</StyledDetails>
-      </StyledLink>
-    </StyledWrapper>
+    <Fade duration={1500}>
+      <StyledWrapper>
+        {/* style={style} */}
+        <StyledParagraph>0/1/{id}</StyledParagraph>
+        <StyledBackground src={src} id={id}></StyledBackground>
+        <StyledHeader>{title}</StyledHeader>
+        <StyledLink to={pathName}>
+          <StyledDetails>More</StyledDetails>
+        </StyledLink>
+      </StyledWrapper>
+    </Fade>
   );
 };
 

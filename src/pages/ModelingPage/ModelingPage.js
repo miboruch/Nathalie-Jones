@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+import ContentHeader from '../../components/ContentHeader/ContentHeader';
+
 const StyledWrapper = styled.div`
   color: #aaa;
 `;
@@ -15,8 +17,10 @@ const StyledLink = styled(Link)`
 const ModelingPage = () => {
   return (
     <StyledWrapper>
-      <h1>Hello</h1>
-      <StyledLink to={'/'}>go back</StyledLink>
+      <ContentHeader
+        title={'Modeling'}
+        src={'./images/hero.jpg'}
+      ></ContentHeader>
     </StyledWrapper>
   );
 };

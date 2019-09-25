@@ -19,7 +19,7 @@ const StyledListItem = styled(animated.li)`
   font-weight: bold;
   padding: 1rem 0;
   letter-spacing: 5px;
-  background: linear-gradient(#333, tomato) left no-repeat #999;
+  background: linear-gradient(#333, #292a2b) left no-repeat #999;
   background-size: 0% 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -54,7 +54,8 @@ const StyledBlock = styled.div`
   width: ${({ isOpen }) => (isOpen ? 'calc(100% / 3)' : '0')};
   height: 100vh;
   left: 0;
-  background: #fcf0ec;
+  ${'' /* background: #fcf0ec; */}
+  background: ${({ theme }) => theme.color.impactBackground};
   transition: width 1.5s ease;
 `;
 
@@ -72,7 +73,7 @@ const StyledStripe = styled.span`
   width: 1px;
   height: ${({ isOpen }) => (isOpen ? '100vh' : '1vh')};
   background: ${({ isOpen }) =>
-    isOpen ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
+    isOpen ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)'};
   position: absolute;
   transition: background 2s ease, height 2s 1s ease;
   left: 33.33%;
@@ -87,22 +88,6 @@ const StyledLink = animated(Link);
 
 const Menu = ({ isOpen, toggleMenu }) => {
   const trail = useTrail(menuItems.length, {
-    // from: {
-    //   opacity: 0,
-    //   visibility: 'hidden',
-    //   transform: 'translateX(-30px)',
-    //   pointerEvents: 'none'
-    // },
-    // to: {
-    //   pointerEvents: isOpen ? 'auto' : 'none',
-    //   opacity: isOpen ? 1 : 0,
-    //   visibility: isOpen ? 'visible' : 'hidden',
-    //   transform: 'translateX(0)'
-    // },
-    // delay: isOpen ? 3000 : 0,
-    // reset: true,
-    // reverse: false
-
     opacity: isOpen ? 1 : 0,
     transform: `translateX(${isOpen ? '0' : '-30px'})`,
     from: { opacity: 0, transform: 'translateX(-30px)' },
@@ -121,7 +106,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
       <StyledList>
         {trail.map((props, index) => (
           <StyledLink
-            to='/modeling'
+            to={menuItems[index].path}
             key={menuItems[index].id}
             onClick={toggleMenu}
           >

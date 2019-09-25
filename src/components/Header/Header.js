@@ -6,7 +6,7 @@ import { easeCubicInOut } from 'd3-ease';
 import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;

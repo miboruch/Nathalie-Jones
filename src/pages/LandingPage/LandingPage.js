@@ -21,14 +21,24 @@ const LandingPage = () => {
   return (
     <>
       <Header></Header>
-      {trail.map((props, index) => (
+      {/* {trail.map((props, index) => (
         <AnimatedSection
           style={props}
           key={context[index].id}
           src={context[index].src}
           id={context[index].id}
           title={context[index].title}
+          pathName={context[index].path}
         ></AnimatedSection>
+      ))} */}
+      {context.map((item, index) => (
+        <Section
+          key={item.id}
+          src={item.src}
+          title={item.title}
+          id={item.id}
+          pathName={item.path}
+        ></Section>
       ))}
     </>
   );

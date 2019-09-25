@@ -4,22 +4,26 @@ const SectionContext = React.createContext([
   {
     id: '01',
     src: './images/modeling.jpg',
-    title: 'Modeling'
+    title: 'Modeling',
+    path: '/modeling'
   },
   {
     id: '02',
     src: './images/hero.jpg',
-    title: 'Acting'
+    title: 'Acting',
+    path: '/acting'
   },
   {
     id: '03',
     src: './images/hero1.jpg',
-    title: 'Demo reels'
+    title: 'Demo reels',
+    path: '/demo-reels'
   },
   {
     id: '04',
     src: './images/hero2.jpg',
-    title: 'Contact'
+    title: 'Contact',
+    path: '/contact'
   }
 ]);
 

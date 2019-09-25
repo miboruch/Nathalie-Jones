@@ -1,22 +1,27 @@
 export const menuItems = [
   {
     id: '01',
-    name: 'Home'
+    name: 'Home',
+    path: '/'
   },
   {
     id: '02',
-    name: 'Acting'
+    name: 'Acting',
+    path: '/acting'
   },
   {
     id: '03',
-    name: 'Modeling'
+    name: 'Modeling',
+    path: '/modeling'
   },
   {
     id: '04',
-    name: 'Demo reels'
+    name: 'Demo reels',
+    path: '/demo-reels'
   },
   {
     id: '05',
-    name: 'Contact'
+    name: 'Contact',
+    path: '/contact'
   }
 ];

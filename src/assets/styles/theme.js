@@ -5,7 +5,8 @@ export const theme = {
     }
   },
   color: {
-    background: '#fcf0ec'
+    background: '#fcf0ec',
+    impactBackground: '#292a2b'
   },
   mq: {
     mobileL: '@media all and (min-width: 370px)',
